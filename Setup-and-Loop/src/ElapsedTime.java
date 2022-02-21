@@ -1,19 +1,19 @@
 public class ElapsedTime {
     private long startTime;
     private long endTime;
-    private long time;
+    private long time = 20;
     
-    public long getTime() {
-        return time;
+    public ElapsedTime() {
+        reset();
     }
 
     public void setTime(long time) {
-        startTime = System.currentTimeMillis();
-        endTime = startTime + time;
+        this.time = time;
     }
 
-    public ElapsedTime(long time) {
-        setTime(time);
+    public void reset() {
+        startTime = System.currentTimeMillis();
+        endTime = startTime + time;
     }
 
     public long getTimeRemain() {

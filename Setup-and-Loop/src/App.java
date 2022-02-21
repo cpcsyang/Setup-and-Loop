@@ -1,5 +1,4 @@
 public class App {
-    private App(){}
     public static void main(String[] args) throws Exception {
         App.start();
 
@@ -15,6 +14,16 @@ public class App {
     }
 
     private static void start() {
-        
+        MyProgram prog = new MyProgram();
+        prog.setup();
+        ElapsedTime t = new ElapsedTime();
+        t.setTime(prog.getPeriod());
+        prog.loop();
+        while (true) {
+            if(t.timesUp()) {
+                t.reset();           
+                prog.loop();    
+            }
+        }
     }
 }
